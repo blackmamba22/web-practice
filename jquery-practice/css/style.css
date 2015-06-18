@@ -1,0 +1,32 @@
+#header {
+  position: relative;
+  top: 20px;
+  width: 100%;
+}
+
+#content {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+
+}
+
+.toplinks {
+  float: right;
+  position: absolute;
+  top: -5px;
+  left: 82%;
+  list-style-type: none;
+  font-family: sans-serif, cursive, monospace;
+  font-size: 14px;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+img {
+  height: 120px;
+  width: 400px;
+}
