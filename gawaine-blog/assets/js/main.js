@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
     $("#rss-feeds").rss(
 
         //Change this to your own rss feeds
-        "https://github.com/blackmamba22.atom",
+        "http://gawaineo.royalwebhosting.net/blog/feed/",
 
         {
         // how many entries do you want?
