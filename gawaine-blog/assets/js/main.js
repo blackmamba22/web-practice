@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
     $("#rss-feeds").rss(
 
         //Change this to your own rss feeds
-        "http://gawaineo.royalwebhosting.net/blog/feed/",
+        "http://gawaineo.com/blog/feed/",
 
         {
         // how many entries do you want?
@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
     );
 
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "blackmamba22", selector: "#ghfeed" });
+    GitHubActivity.feed({ username: "gawaineo", selector: "#ghfeed" });
 
 
 });
