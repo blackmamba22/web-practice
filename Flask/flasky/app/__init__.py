@@ -1,29 +1,26 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.mail import Mail
-import os
+from flask.ext.moment import Moment
+from config import config
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+bootstrap = Bootstrap()
+mail = Mail()
+moment = Moment()
+db = SQLAlchemy()
 
-app = Flask(__name__)
+def create_app(config_name):
+    app = Flask(__name__)
+    app.config.from_object(config[config_name])
+    config[config_name].init_app(app)
 
-app.config['SECRET_KEY'] = 'pooch'
+    bootstrap.init_app(app)
+    mail.init_app(app)
+    moment.init_app(app)
+    db.init_app(app)
 
-# Database Configurations
-app.config['SQLALCHEMY_DATABASE_URI'] =\
-    'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+    from main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
-# MAIL Configurations
-app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-
-db = SQLAlchemy(app)
-bootstrap = Bootstrap(app)
-mail = Mail(app)
-
-import views
+    return app
