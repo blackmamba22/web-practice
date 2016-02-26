@@ -1,0 +1,22 @@
+Django TV Maze Web Application
+------------------------------
+
+1. Appearance
+- Home Page: It will look just like www.tvmaze.com
+- Detail Page: Each TV show will have it's own individual details page
+  - Will have Tabs below the title that named -> Main | Episodes | Cast | Crew | Characters | Gallery
+  - It will show TV Show picture/poster
+  - Show main cast with their picture and cast name as well real name
+  - Will have a show info box that describes Air date, show type, genre, Status,
+    scheduled and creator of show, ratings
+  - A previous episodes table that will list 3 most recent episodes
+  - Display next episode with a brief description
+
+
+
+2. Features
+- Able to sign in with Google/Facebook account
+- Registered users will be sent an email confirmation
+- If user is logged in and active they can follow a TV show by clicking the follow
+  button
+ -
