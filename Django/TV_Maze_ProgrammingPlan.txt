@@ -11,6 +11,10 @@ Django TV Maze Web Application
     scheduled and creator of show, ratings
   - A previous episodes table that will list 3 most recent episodes
   - Display next episode with a brief description
+- Shows Page: It will have a list of all the shows (Pagination included)
+  - There will be a filter sidebar for "Show Status", "Show Type", "Genre", "Language"
+    "Country", "Network", "Web Channel", "Following", "Sort by"
+  - Each show will be represented by it's picture 
 
 
 
@@ -19,4 +23,3 @@ Django TV Maze Web Application
 - Registered users will be sent an email confirmation
 - If user is logged in and active they can follow a TV show by clicking the follow
   button
- -
