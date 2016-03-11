@@ -20,11 +20,14 @@
     </form>
     <hr>
     <br/>
-    <ol>
+    <ul class="list-group">
       {% for item in todo %}
-        <h3><li>{{ item.name }} | {{ item.due_date }}</li></h3>
+        <h3><li class="list-group-item">
+          <a href="#"><span class="glyphicon glyphicon-unchecked"></span></a>
+          {{ item.name }}
+          <span class="badge"> {{ item.due_date }}</span></li></h3>
       {% endfor %}
-    </ol>
+    </ul>
   </div>
 </div>
 
