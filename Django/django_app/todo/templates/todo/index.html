@@ -23,9 +23,10 @@
     <ul class="list-group">
       {% for item in todo %}
         <h3><li class="list-group-item">
-          <a href="#"><span class="glyphicon glyphicon-unchecked"></span></a>
-          {{ item.name }}
-          <span class="badge"> {{ item.due_date }}</span></li></h3>
+          <a href="#{{ item.id }}"><span class="glyphicon glyphicon-unchecked"></span></a>
+          <span class="todo-text">{{ item.name }}</span>
+          <span class="badge"> {{ item.due_date }}</span>
+        </li></h3>
       {% endfor %}
     </ul>
   </div>
