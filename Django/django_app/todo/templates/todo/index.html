@@ -12,9 +12,9 @@
       {% endfor %}
 
       {% for field in form.visible_fields %}
-        <span style="color:red">{{ field.errors }}</span>
         {{ field.help_text }}
-        {{ field }}
+        <p>{{ field.label }}: {{ field }} <span style="color:red">{{ field.errors }}</span></p>
+
       {% endfor %}
       <button type="submit" class="glyphicon glyphicon-plus">Submit</button>
     </form>
