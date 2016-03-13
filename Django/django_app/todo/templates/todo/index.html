@@ -1,5 +1,6 @@
 {% extends 'todo/base.html' %}
 
+{% block title%}Index{% endblock %}
 {% block body %}
 <div class="container">
   <div class="jumbotron">
@@ -20,22 +21,35 @@
     </form>
     <hr>
     <br/>
-    <ul class="list-group">
+    <table class="table table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Action Item</th>
+          <th>Due Date</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
       {% for item in todo %}
-        <h3><li class="list-group-item">
-          <a href="#{{ item.id }}"><span class="glyphicon glyphicon-unchecked"></span></a>
-          <span class="todo-text">{{ item.name }}</span>
-          <span class="badge"> {{ item.due_date }}</span>
-          <form role="form" method="post" action="{% url "todo:remove" %}?next={% url "todo:index" %}" class="form-inline">
-            {% csrf_token %}
-            <button name="remove_button" value="{{ item.id }}" type="submit" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-remove">
-            </button>
-          </form>
-
-        </li></h3>
-      {% endfor %}
-    </ul>
+        <tr>
+          <td class="chkbx">
+            <a href="#{{ item.id }}">
+            <span class="glyphicon glyphicon-unchecked"></span></a></td>
+          <td><span class="todo-text">{{ item.name }}</span></td>
+          <td><span class="badge"> {{ item.due_date }}</span></td>
+          <td>
+            <form role="form" method="post" action="{% url "todo:remove" %}?next={% url "todo:index" %}" class="form-inline">
+              {% csrf_token %}
+              <button name="remove_button" value="{{ item.id }}" type="submit" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-remove">
+              </button>
+            </form>
+          </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
   </div>
 </div>
 
