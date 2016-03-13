@@ -26,6 +26,13 @@
           <a href="#{{ item.id }}"><span class="glyphicon glyphicon-unchecked"></span></a>
           <span class="todo-text">{{ item.name }}</span>
           <span class="badge"> {{ item.due_date }}</span>
+          <form role="form" method="post" action="{% url "todo:remove" %}?next={% url "todo:index" %}" class="form-inline">
+            {% csrf_token %}
+            <button name="remove_button" value="{{ item.id }}" type="submit" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-remove">
+            </button>
+          </form>
+
         </li></h3>
       {% endfor %}
     </ul>
