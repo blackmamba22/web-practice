@@ -37,11 +37,18 @@ def remove_item(request):
         return redirect(request.GET['next'])
     return render(request, 'todo/base.html')
 
-@csrf_protect
+
 def mark_complete(request):
     if request.method == 'POST':
-        completed_item = request.POST.get("data", "nothing found")
-        print completed_item
-        #if not completed_item == "nothing found":
+        completed_item = request.POST.get("model_id", "nothing found")
+        
+        if not completed_item == "nothing found":
+            m = models.ToDoItem.objects.get(id=completed_item)
+            m.is_completed = True
+            m.save()
+
+
+    if 'next' in request.GET:
+        return redirect(request.GET['next'])
 
     return render(request, 'todo/base.html')

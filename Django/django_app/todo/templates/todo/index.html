@@ -38,13 +38,14 @@
               {% csrf_token %}
               <a class="chkbx" id="{{ item.id }}" href="#{{ item.id }}">
               <span class="glyphicon glyphicon-unchecked"></span></a>
+              <input name="model_id" type="hidden" value="{{ item.id }}">
             </form>
           </td>
           <td>
             {% if item.is_completed %}
               <span class="todo-text" style="text-decoration:line-through;">{{ item.name }}</span>
             {% else %}
-              <span class="todo-text">{{ item.name }}</span>
+              <span class="todo-text">{{ item.name }}{{ item.is_completed }}</span>
             {% endif %}
           </td>
           <td><span class="badge"> {{ item.due_date }}</span></td>
