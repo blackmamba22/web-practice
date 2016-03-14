@@ -33,10 +33,20 @@
       <tbody>
       {% for item in todo %}
         <tr>
-          <td class="chkbx">
-            <a href="#{{ item.id }}">
-            <span class="glyphicon glyphicon-unchecked"></span></a></td>
-          <td><span class="todo-text">{{ item.name }}</span></td>
+          <td>
+            <form role="form" method="post" action="{% url "todo:complete" %}?next={% url "todo:index" %}" class="form-inline">
+              {% csrf_token %}
+              <a class="chkbx" id="{{ item.id }}" href="#{{ item.id }}">
+              <span class="glyphicon glyphicon-unchecked"></span></a>
+            </form>
+          </td>
+          <td>
+            {% if item.is_completed %}
+              <span class="todo-text" style="text-decoration:line-through;">{{ item.name }}</span>
+            {% else %}
+              <span class="todo-text">{{ item.name }}</span>
+            {% endif %}
+          </td>
           <td><span class="badge"> {{ item.due_date }}</span></td>
           <td>
             <form role="form" method="post" action="{% url "todo:remove" %}?next={% url "todo:index" %}" class="form-inline">
