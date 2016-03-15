@@ -45,7 +45,7 @@
             {% if item.is_completed %}
               <span class="todo-text" style="text-decoration:line-through;">{{ item.name }}</span>
             {% else %}
-              <span class="todo-text">{{ item.name }}{{ item.is_completed }}</span>
+              <span class="todo-text">{{ item.name }}</span>
             {% endif %}
           </td>
           <td><span class="badge"> {{ item.due_date }}</span></td>
